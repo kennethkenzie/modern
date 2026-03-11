@@ -787,7 +787,7 @@ values
   (
     'navbar',
     jsonb_build_object(
-      'logoUrl', '',
+      'logoUrl', 'https://ik.imagekit.io/hqhiltiie/trade/logo-100.jpg?updatedAt=1772873309620',
       'logoAlt', 'Modern Electronics Ltd',
       'searchPlaceholder', 'Search here...'
     ),

@@ -181,7 +181,7 @@ export type FrontendData = {
 
 export const defaultFrontendData: FrontendData = {
   navbar: {
-    logoUrl: "https://ik.imagekit.io/bithub/MODERN%20LOGO%20full.svg",
+    logoUrl: "https://ik.imagekit.io/hqhiltiie/trade/logo-100.jpg?updatedAt=1772873309620",
     logoAlt: "Easy Spares",
     searchPlaceholder: "Search here...",
     topLinks: [
