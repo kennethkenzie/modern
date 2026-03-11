@@ -1,0 +1,368 @@
+export type NavTopLink = {
+  label: string;
+  href: string;
+  icon: "home" | "info" | "mail";
+};
+
+export type NavQuickLink = {
+  label: string;
+  href: string;
+};
+
+export type NavbarData = {
+  logoUrl: string;
+  logoAlt: string;
+  searchPlaceholder: string;
+  topLinks: NavTopLink[];
+  quickLinks: NavQuickLink[];
+};
+
+export type HeroSlide = {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+};
+
+export type HeroSideCard = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  image: string;
+  href: string;
+};
+
+export type HeroData = {
+  slides: HeroSlide[];
+  sideCards: HeroSideCard[];
+};
+
+export type TrustItem = {
+  icon: "wallet" | "package" | "truck";
+  title: string;
+  subtitle: string;
+};
+
+export type TrustBarData = {
+  items: TrustItem[];
+};
+
+export type CategoryTile = {
+  label: string;
+  image: string;
+  href: string;
+};
+
+export type CategoryCard = {
+  title: string;
+  tiles: CategoryTile[];
+  cta: { label: string; href: string };
+};
+
+export type CategoryTilesData = {
+  cards: CategoryCard[];
+};
+
+export type LatestProduct = {
+  id: string;
+  name: string;
+  shortDesc: string;
+  image: string;
+  price: number;
+  oldPrice?: number;
+  discountPercent?: number;
+  rating?: number;
+  href: string;
+};
+
+export type LatestProductsData = {
+  title: string;
+  ctaLabel: string;
+  ctaHref: string;
+  products: LatestProduct[];
+};
+
+export type RelatedProduct = {
+  id: string;
+  title: string;
+  image: string;
+  href: string;
+  rating: number;
+  reviews?: string;
+  price: string;
+  oldPrice?: string;
+  tag?: string;
+};
+
+export type RelatedProductsData = {
+  title: string;
+  sponsoredLabel: string;
+  pageLabel: string;
+  products: RelatedProduct[];
+};
+
+export type ProductGalleryItem = {
+  id: number;
+  image: string;
+  alt: string;
+  isVideo?: boolean;
+};
+
+export type ProductSize = {
+  label: string;
+  price: string;
+  oldPrice?: string;
+};
+
+export type ProductSpec = {
+  label: string;
+  value: string;
+};
+
+export type ProductDetailsData = {
+  title: string;
+  storeLabel: string;
+  rating: number;
+  ratingsLabel: string;
+  bestsellerLabel: string;
+  bestsellerCategory: string;
+  boughtLabel: string;
+  priceMajor: string;
+  priceMinor: string;
+  shippingLabel: string;
+  inStockLabel: string;
+  deliveryLabel: string;
+  aboutTitle: string;
+  aboutItems: string[];
+  gallery: ProductGalleryItem[];
+  sizes: ProductSize[];
+  specs: ProductSpec[];
+};
+
+export type Category = {
+  id: string;
+  title: string;
+  rootCategory?: string;
+  order: number;
+  commission: string;
+  isFeatured: boolean;
+  isActive: boolean;
+  thumbnail: string; // Cloudinary URL
+  banner: string; // Cloudinary URL
+  icon: string; // Cloudinary URL
+  slug: string;
+};
+
+export type Brand = {
+  id: string;
+  title: string;
+  slug: string;
+  logo: string; // Cloudinary URL
+  banner?: string; // Cloudinary URL
+  metaTitle?: string;
+  metaDescription?: string;
+  isActive: boolean;
+  isFeatured?: boolean;
+};
+
+export type FrontendData = {
+  navbar: NavbarData;
+  hero: HeroData;
+  trustBar: TrustBarData;
+  categoryTiles: CategoryTilesData;
+  latestProducts: LatestProductsData;
+  relatedProducts: RelatedProductsData;
+  productDetails: ProductDetailsData;
+  brands: Brand[];
+  categories: Category[];
+};
+
+export const defaultFrontendData: FrontendData = {
+  navbar: {
+    logoUrl: "https://ik.imagekit.io/bithub/MODERN%20LOGO%20full.svg",
+    logoAlt: "Easy Spares",
+    searchPlaceholder: "Search here...",
+    topLinks: [
+      { label: "Home", href: "/", icon: "home" },
+      { label: "About Us", href: "/about", icon: "info" },
+      { label: "Contact", href: "/contact", icon: "mail" },
+    ],
+    quickLinks: [
+      { label: "TV Parts", href: "/tv-parts" },
+      { label: "Featured Category", href: "/featured" },
+      { label: "Hot Deals!", href: "/wholesale" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  hero: {
+    slides: [
+      {
+        id: "s1",
+        image: "https://ik.imagekit.io/bithub/banner-pc-3.webp",
+        title: "Professional TV Spare Parts And Repair Tools",
+        description: "Stock fast-moving components, workshop essentials, and tested electronics accessories from one storefront.",
+        ctaLabel: "Shop Now",
+        ctaHref: "#",
+      },
+      {
+        id: "s2",
+        image: "https://ik.imagekit.io/bithub/lifestyle-pc-2.webp",
+        title: "Reliable Parts For Everyday Repairs",
+        description: "Browse boards, remotes, backlights, and tools selected for technicians, installers, and resellers.",
+        ctaLabel: "Explore Deals",
+        ctaHref: "#",
+      },
+      {
+        id: "s3",
+        image: "https://ik.imagekit.io/bithub/HS_TOPDEALS_EVERGREEN_1600x600.avif",
+        title: "Hot Deals On Popular Electronics",
+        description: "Highlight your top campaigns with strong hero messaging, direct links, and product-first imagery.",
+        ctaLabel: "View Offers",
+        ctaHref: "#",
+      },
+    ],
+    sideCards: [
+      {
+        id: "c1",
+        eyebrow: "REWORK STATION",
+        title: "Low Price, Good Quality..",
+        image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80",
+        href: "/category/rework-station",
+      },
+      {
+        id: "c2",
+        eyebrow: "DB METER",
+        title: "Buy Best TV Signal Finder...",
+        image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=900&q=80",
+        href: "/category/db-meter",
+      },
+    ],
+  },
+  trustBar: {
+    items: [
+      { icon: "wallet", title: "Secure Shopping", subtitle: "100% Safe & Secure" },
+      { icon: "package", title: "Easy Support", subtitle: "Whatsapp & Call" },
+      { icon: "truck", title: "Fast Delivery", subtitle: "Fast delivery around Kampala" },
+    ],
+  },
+  categoryTiles: {
+    cards: [
+      {
+        title: "Top categories in TV spare parts",
+        tiles: [
+          { label: "T-CON boards", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80", href: "/category/tcon" },
+          { label: "Main boards", image: "https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=900&q=80", href: "/category/main-boards" },
+          { label: "Power supply", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80", href: "/category/power-supply" },
+          { label: "LED backlights", image: "https://images.unsplash.com/photo-1563770660941-10a636076e17?auto=format&fit=crop&w=900&q=80", href: "/category/backlights" },
+        ],
+        cta: { label: "Shop TV parts", href: "/tv-parts" },
+      },
+      {
+        title: "Repair tools & workshop essentials",
+        tiles: [
+          { label: "Rework stations", image: "https://images.unsplash.com/photo-1581092583537-20d51b4b4f8f?auto=format&fit=crop&w=900&q=80", href: "/category/rework-stations" },
+          { label: "Multimeters", image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=900&q=80", href: "/category/multimeters" },
+          { label: "Soldering irons", image: "https://images.unsplash.com/photo-1581092334631-7b0c5ed9c4d7?auto=format&fit=crop&w=900&q=80", href: "/category/soldering" },
+          { label: "Signal finders", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80", href: "/category/signal-finders" },
+        ],
+        cta: { label: "Explore repair tools", href: "/tools" },
+      },
+      {
+        title: "Home appliances & replacement parts",
+        tiles: [
+          { label: "Microwave parts", image: "https://images.unsplash.com/photo-1585655852389-6f9b9c8a2b1c?auto=format&fit=crop&w=900&q=80", href: "/category/microwave-parts" },
+          { label: "Fridge spares", image: "https://images.unsplash.com/photo-1586201375761-83865001e31b?auto=format&fit=crop&w=900&q=80", href: "/category/fridge-spares" },
+          { label: "Washing machine", image: "https://images.unsplash.com/photo-1581579186898-13e6b8e5b8c0?auto=format&fit=crop&w=900&q=80", href: "/category/washing-machine" },
+          { label: "Electric kettles", image: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=900&q=80", href: "/category/kettles" },
+        ],
+        cta: { label: "Shop appliance parts", href: "/appliances" },
+      },
+      {
+        title: "Popular accessories for installers",
+        tiles: [
+          { label: "HDMI & AV cables", image: "https://images.unsplash.com/photo-1602524816604-3d0f42c7b9a8?auto=format&fit=crop&w=900&q=80", href: "/category/cables" },
+          { label: "TV remotes", image: "https://images.unsplash.com/photo-1617957743094-0c7c9dbe2c35?auto=format&fit=crop&w=900&q=80", href: "/category/remotes" },
+          { label: "Wall mounts", image: "https://images.unsplash.com/photo-1581345331967-6d7ccacb7002?auto=format&fit=crop&w=900&q=80", href: "/category/wall-mounts" },
+          { label: "Power adapters", image: "https://images.unsplash.com/photo-1580508244245-c446ca981a47?auto=format&fit=crop&w=900&q=80", href: "/category/adapters" },
+        ],
+        cta: { label: "Explore accessories", href: "/accessories" },
+      },
+    ],
+  },
+  latestProducts: {
+    title: "Latest",
+    ctaLabel: "View all",
+    ctaHref: "/products",
+    products: [
+      { id: "p1", name: "25Q16 16Mbit SPI Serial Flash IC", shortDesc: "Stable memory chip for TV main boards, routers & repair jobs.", image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=80", price: 12000, oldPrice: 27000, discountPercent: 55, rating: 4.2, href: "/product/25q16" },
+      { id: "p2", name: "LM2576S 3A Step-Down Buck Regulator", shortDesc: "3A DC-DC step-down regulator for power supply repairs.", image: "https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=900&q=80", price: 15000, oldPrice: 38000, discountPercent: 60, rating: 4.0, href: "/product/lm2576s" },
+      { id: "p3", name: "24C32 32-Kbit I2C Serial EEPROM", shortDesc: "Reliable EEPROM for firmware storage & calibration data.", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80", price: 9000, oldPrice: 36000, discountPercent: 75, rating: 3.8, href: "/product/24c32" },
+      { id: "p4", name: "TEA2025B Dual/Bridge Audio Amplifier IC", shortDesc: "Classic dual audio amp IC for speaker & radio boards.", image: "https://images.unsplash.com/photo-1580508244245-c446ca981a47?auto=format&fit=crop&w=900&q=80", price: 8000, oldPrice: 21000, discountPercent: 61, rating: 4.4, href: "/product/tea2025b" },
+      { id: "p5", name: "TDA2822M Dual Channel Audio Amplifier", shortDesc: "Compact amplifier for small speakers and signal projects.", image: "https://images.unsplash.com/photo-1581092583537-20d51b4b4f8f?auto=format&fit=crop&w=900&q=80", price: 5000, oldPrice: 25000, discountPercent: 80, rating: 4.1, href: "/product/tda2822m" },
+    ],
+  },
+  relatedProducts: {
+    title: "Products related to this item",
+    sponsoredLabel: "Sponsored",
+    pageLabel: "Page 1 of 58",
+    products: [
+      { id: "1", title: "Instant Pot Cooking Times Chart - Pressure Cooker Accessories Cook Times - Easy to ...", image: "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?auto=format&fit=crop&w=700&q=80", href: "/product/cooking-times-chart", rating: 5, reviews: "8,826", price: "UGX 35,000" },
+      { id: "2", title: "10 in 1 Electric Pressure Cooker with 24-Hour Reservation Function, 6L, Slow Cooker...", image: "https://images.unsplash.com/photo-1585515656973-94d1ea4f5b0b?auto=format&fit=crop&w=700&q=80", href: "/product/10-in-1-pressure-cooker", rating: 5, price: "UGX 275,000" },
+      { id: "3", title: "12-in-1 Electric Pressure Cooker 8 Quart, 1200W olla de presion Multi-Cooker with S...", image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=700&q=80", href: "/product/12-in-1-electric-cooker", rating: 4, reviews: "7", price: "UGX 310,000" },
+      { id: "4", title: "9-in-1 Electric Pressure Cooker 6 Qt, Dual Inner Pots, Stainless Steel Pot and Non-...", image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80", href: "/product/9-in-1-pressure-cooker", rating: 4, reviews: "12", price: "UGX 335,000" },
+      { id: "5", title: "Barton 8QT Pressure Canner Release Valve Aluminum Canning Pot Cooker Pot Stove Top ...", image: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=700&q=80", href: "/product/barton-pressure-canner", rating: 4, reviews: "4,075", price: "UGX 165,000" },
+      { id: "6", title: "CHEF iQ Smart Pressure Cooker with WiFi and Built-in Scale - Easy-to-Use 10-in-1 Mu...", image: "https://images.unsplash.com/photo-1585515656882-cfb0c9d8689b?auto=format&fit=crop&w=700&q=80", href: "/product/chef-iq-smart-cooker", rating: 5, reviews: "2,976", price: "UGX 520,000", oldPrice: "UGX 650,000", tag: "Limited time deal" },
+      { id: "7", title: "KINGBULL 12-in-1 Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Saute...", image: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=700&q=80", href: "/product/kingbull-12-in-1", rating: 5, reviews: "63", price: "UGX 365,000" },
+    ],
+  },
+  productDetails: {
+    title: "Instant Pot Duo Plus 9-in-1 Multicooker, Pressure Cooker, Slow Cook, Rice Maker, Steamer, Saute, Yogurt, Warmer & Sterilizer, Stainless Steel, 6 Quarts",
+    storeLabel: "Visit Modern Electronics Ltd",
+    rating: 4.4,
+    ratingsLabel: "52,048 ratings",
+    bestsellerLabel: "#1 Best Seller",
+    bestsellerCategory: "in Electric Pressure Cookers",
+    boughtLabel: "5K+ bought in past month",
+    priceMajor: "420",
+    priceMinor: ",000",
+    shippingLabel: "UGX 58,000 shipping to Uganda.",
+    inStockLabel: "In Stock",
+    deliveryLabel: "Thursday, March 19",
+    aboutTitle: "About this item",
+    aboutItems: [
+      "9 cooking functions: pressure cook, slow cook, saute, steam, sterilize, rice, soup, yogurt and warm.",
+      "Customizable smart programs to make everyday meals easy and consistent.",
+      "Intuitive display with cooking progress, time indicator and one-touch controls.",
+      "Durable stainless steel cooking pot with easy-clean interior and removable sealing parts.",
+    ],
+    gallery: [
+      { id: 1, image: "https://images.unsplash.com/photo-1585515656973-94d1ea4f5b0b?auto=format&fit=crop&w=900&q=80", alt: "Pressure cooker front view" },
+      { id: 2, image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80", alt: "Pressure cooker in kitchen" },
+      { id: 3, image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80", alt: "Cooked meal example" },
+      { id: 4, image: "https://images.unsplash.com/photo-1585515656882-cfb0c9d8689b?auto=format&fit=crop&w=900&q=80", alt: "Open lid cooker detail" },
+      { id: 5, image: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=900&q=80", alt: "Preset cooking programs" },
+      { id: 6, image: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=900&q=80", alt: "Top view" },
+      { id: 7, image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80", alt: "Video preview", isVideo: true },
+    ],
+    sizes: [
+      { label: "3 Quarts", price: "UGX 285,000", oldPrice: "UGX 349,000" },
+      { label: "6 Quarts", price: "UGX 420,000", oldPrice: "UGX 489,000" },
+    ],
+    specs: [
+      { label: "Brand", value: "Modern Electronics Ltd" },
+      { label: "Capacity", value: "6 Quarts" },
+      { label: "Material", value: "Stainless steel" },
+      { label: "Color", value: "Stainless Plus" },
+      { label: "Finish Type", value: "Chrome" },
+      { label: "Product Dimensions", value: "12.2\"D x 13.39\"W x 12.99\"H" },
+      { label: "Special Feature", value: "Electric stovetop compatible" },
+      { label: "Wattage", value: "1000 watts" },
+      { label: "Item Weight", value: "12.35 Pounds" },
+      { label: "Control Method", value: "Touch" },
+    ],
+  },
+  brands: [],
+  categories: [],
+};
