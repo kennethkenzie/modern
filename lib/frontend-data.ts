@@ -181,7 +181,7 @@ export type FrontendData = {
 
 export const defaultFrontendData: FrontendData = {
   navbar: {
-    logoUrl: "https://ik.imagekit.io/hqhiltiie/trade/logo-100.jpg?updatedAt=1772873309620",
+    logoUrl: "/logo.png",
     logoAlt: "Easy Spares",
     searchPlaceholder: "Search here...",
     topLinks: [
@@ -200,7 +200,7 @@ export const defaultFrontendData: FrontendData = {
     slides: [
       {
         id: "s1",
-        image: "https://ik.imagekit.io/bithub/banner-pc-3.webp",
+        image: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1600&q=80",
         title: "Professional TV Spare Parts And Repair Tools",
         description: "Stock fast-moving components, workshop essentials, and tested electronics accessories from one storefront.",
         ctaLabel: "Shop Now",
@@ -208,7 +208,7 @@ export const defaultFrontendData: FrontendData = {
       },
       {
         id: "s2",
-        image: "https://ik.imagekit.io/bithub/lifestyle-pc-2.webp",
+        image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80",
         title: "Reliable Parts For Everyday Repairs",
         description: "Browse boards, remotes, backlights, and tools selected for technicians, installers, and resellers.",
         ctaLabel: "Explore Deals",
@@ -216,7 +216,7 @@ export const defaultFrontendData: FrontendData = {
       },
       {
         id: "s3",
-        image: "https://ik.imagekit.io/bithub/HS_TOPDEALS_EVERGREEN_1600x600.avif",
+        image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=1600&q=80",
         title: "Hot Deals On Popular Electronics",
         description: "Highlight your top campaigns with strong hero messaging, direct links, and product-first imagery.",
         ctaLabel: "View Offers",

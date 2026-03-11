@@ -1,7 +1,24 @@
 const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME?.trim();
+const DIRECT_IMAGE_HOSTS = [
+  "ik.imagekit.io",
+  "res.cloudinary.com",
+  "images.unsplash.com",
+];
 
 function isRemoteUrl(url: string) {
   return /^https?:\/\//i.test(url);
+}
+
+function shouldServeDirect(url: string) {
+  try {
+    const { hostname } = new URL(url);
+    return DIRECT_IMAGE_HOSTS.some(
+      (allowedHost) =>
+        hostname === allowedHost || hostname.endsWith(`.${allowedHost}`)
+    );
+  } catch {
+    return false;
+  }
 }
 
 function buildPlaceholderLabel(url: string) {
@@ -58,8 +75,8 @@ export function getImageFallbackUrl(url: string) {
 export function toCloudinaryUrl(url: string): string {
   if (!url) return url;
   if (url.startsWith("/") || url.startsWith("data:")) return url;
-  if (url.includes("res.cloudinary.com")) return url;
   if (!isRemoteUrl(url)) return url;
+  if (shouldServeDirect(url)) return url;
   if (!CLOUD_NAME) return buildPlaceholderDataUri(url);
 
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/fetch/f_auto,q_auto/${encodeURIComponent(
